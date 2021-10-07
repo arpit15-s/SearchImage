@@ -7,15 +7,16 @@ class SearchBox extends React.Component {
 
     state = { term: '' };
 
-    onFormSubmit(event){
+    onFormSubmit = (event) => {
         event.preventDefault();
-        console.log(this.state.term);
-    }
+        // console.log(this.state.term);
+        this.props.onSubmit(this.state.term);
+    };
 
     render() {
         return (
             <div className="ui segment">
-                <form className="ui form">
+                <form onSubmit={this.onFormSubmit} className="ui form">
                     <div className="field">
                         <label><h1>Image Search</h1></label>
                         <input 
